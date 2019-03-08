@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:showIn="navigation_view">
+
+    <group
+        android:id="@+id/g1"
+        android:checkableBehavior="all">
+        <item
+            android:id="@+id/nav_notice"
+            android:icon="@drawable/ic_notice"
+            android:title="@string/nav_notice" />
+        <item
+            android:id="@+id/nav_mypage"
+            android:icon="@drawable/ic_mypage"
+            android:title="@string/nav_mypage" />
+        <item
+            android:id="@+id/nav_favorite"
+            android:icon="@drawable/ic_favorite"
+            android:title="@string/nav_favorite" />
+    </group>
+
+    <group
+        android:id="@+id/g2"
+        android:checkableBehavior="all" >
+        <item
+            android:id="@+id/nav_setting"
+            android:icon="@drawable/ic_setting"
+            android:title="@string/nav_setting" />
+    </group>
+
+</menu>

@@ -1,0 +1,68 @@
+<resources>
+    <string name="app_name">SPACup</string>
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="nav_header_title">Android Studio</string>
+    <string name="nav_header_subtitle">android.studio@android.com</string>
+    <string name="nav_header_desc">Navigation header</string>
+    <string name="action_settings">Settings</string>
+
+    <!-- 시작 화면 -->
+    <string name="index_message">SPACup</string>
+
+    <string name="submit">확인</string>
+    <string name="network_not_working">네크워크에 연결되어 있지 않습니다.\n확인후 다시 실행해주세요.</string>
+
+    <!-- 권한 화면 -->
+    <string name="permission_checking">권한 확인중...</string>
+    <string name="permission_setting_title">권한 설정</string>
+    <string name="permission_setting_message">앱을 실행하기 위해서는 권한 설정을 해야 합니다!</string>
+    <string name="permission_setting_restart">권한을 설정하고 다시 실행해주세요!</string>
+
+    <!-- 왼쪽 메뉴 -->
+    <string name="nav_notice">공지사항</string>
+    <string name="nav_mypage">마이페이지</string>
+    <string name="nav_favorite">즐겨찾기</string>
+    <string name="nav_setting">설정</string>
+
+    <!-- 프로필 -->
+    <string name="profile_setting">프로필 설정</string>
+
+    <string name="profile_name">이름</string>
+    <string name="profile_sextype">성별</string>
+    <string name="profile_birth">생일</string>
+    <string name="profile_phone">전화</string>
+
+    <string name="sex_man">남자</string>
+    <string name="sex_woman">여자</string>
+
+    <string name="device_number">기기 번호</string>
+    <string name="phone_number">전화 번호</string>
+
+    <string name="name_need">이름을 설정해주세요</string>
+    <string name="change_save">변경사항을 저장하시겠습니까?</string>
+
+    <string name="no_change">변경된 사항이 없습니다</string>
+    <string name="no_data">데이터가 없습니다</string>
+
+    <string name="member_insert_fail_message">사용자 등록에 실패하였습니다. 다시 시도해주세요.</string>
+
+    <!-- 마이페이지 아이콘 -->
+    <string name="albumn">앨범</string>
+    <string name="camera">카메라</string>
+
+    <!-- 자격증 리스트 화면 -->
+    <string name="field">분야별</string>
+    <string name="job">직업별</string>
+    <string name="recent">최근순</string>
+
+    <!-- 자격증 정보 화면 -->
+    <string name="description">상세설명</string>
+    <string name="no_text">없음</string>
+    <string name="loading">잠시만 기다려주세요</string>
+    <string name="loading_not">잠시후에 다시 시도해주세요</string>
+
+    <!-- 즐겨찾기 -->
+    <string name="no_keep">등록된 즐겨찾기가 없습니다.</string>
+
+</resources>
