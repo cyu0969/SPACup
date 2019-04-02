@@ -14,6 +14,7 @@ public class CertificateInfoItem {
     public String date;
     public String homepage;
     public String description;
+    @SerializedName("is_keep") public boolean isKeep;
 
     @Override
     public String toString() {

@@ -11,6 +11,8 @@ public class MemberInfoItem {
     public  String name;
     public  String email;
     public  String phone;
+    public String sextype;
+    public String birthday;
     @SerializedName("member_icon_filename") public String memberIconFilename;
 
     @Override
@@ -23,6 +25,8 @@ public class MemberInfoItem {
                 ", email='" + email + '\'' +
                 ", phone='" + phone + '\'' +
                 ", memberIconFilename='" + memberIconFilename + '\'' +
+                ", sextype='" + sextype + '\'' +
+                ", birthday='" + birthday + '\'' +
                 '}'
                 ;
     }
