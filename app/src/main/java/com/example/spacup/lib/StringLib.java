@@ -32,4 +32,11 @@ public class StringLib {
         }
     }
 
+    public String getSubString(Context context, String str, int max) {
+        if (str != null && str.length() > max) {
+            return str.substring(0, max) + context.getResources().getString(R.string.skip_string);
+        } else {
+            return str;
+        }
+    }
 }

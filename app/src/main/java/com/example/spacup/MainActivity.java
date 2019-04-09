@@ -12,9 +12,13 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.TextView;
 
 import com.example.spacup.item.MemberInfoItem;
 import com.example.spacup.lib.GoLib;
+import com.example.spacup.lib.StringLib;
+import com.example.spacup.remote.RemoteService;
+import com.squareup.picasso.Picasso;
 
 import de.hdodenhof.circleimageview.CircleImageView;
 
@@ -54,35 +58,46 @@ public class MainActivity extends AppCompatActivity
     }
 
     @Override
+    protected void onResume() {
+        super.onResume();
+
+        setMypageView();
+    }
+
+    private void setMypageView() {
+        profileIconImage = (CircleImageView) headerLayout.findViewById(R.id.profile_icon);
+        profileIconImage.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                drawer.closeDrawer(GravityCompat.START);
+                GoLib.getInstance().goMypageActivity(MainActivity.this);
+            }
+        });
+
+        if (StringLib.getInstance().isBlank(memberInfoItem.memberIconFilename)) {
+            Picasso.with(this).load(R.drawable.ic_person).into(profileIconImage);
+        } else {
+            Picasso.with(this)
+                    .load(RemoteService.MEMBER_ICON_URL + memberInfoItem.memberIconFilename)
+                    .into(profileIconImage);
+        }
+
+        TextView nameText = (TextView) headerLayout.findViewById(R.id.name);
+
+        if (memberInfoItem.name == null || memberInfoItem.name.equals("")) {
+            nameText.setText(R.string.name_need);
+        } else {
+            nameText.setText(memberInfoItem.name);
+        }
+    }
+
+    @Override
     public void onBackPressed() {
-        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         if (drawer.isDrawerOpen(GravityCompat.START)) {
             drawer.closeDrawer(GravityCompat.START);
         } else {
             super.onBackPressed();
         }
-    }
-
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.main, menu);
-        return true;
-    }
-
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so long
-        // as you specify a parent activity in AndroidManifest.xml.
-        int id = item.getItemId();
-
-        //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
-            return true;
-        }
-
-        return super.onOptionsItemSelected(item);
     }
 
     @SuppressWarnings("StatementWithEmptyBody")
@@ -92,10 +107,15 @@ public class MainActivity extends AppCompatActivity
         int id = item.getItemId();
 
         if (id == R.id.nav_notice) {
-            // Handle the camera action
+
         } else if (id == R.id.nav_mypage) {
 
+            GoLib.getInstance().goMypageActivity((this));
+
         } else if (id == R.id.nav_favorite) {
+
+            GoLib.getInstance().goFragment(getSupportFragmentManager(),
+                    R.id.content_main, SpecupFavoriteFragment.newInstance());
 
         } else if (id == R.id.nav_setting) {
 

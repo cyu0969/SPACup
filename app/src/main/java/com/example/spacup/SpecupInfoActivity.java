@@ -121,6 +121,9 @@ public class SpecupInfoActivity extends AppCompatActivity implements View.OnClic
     private void setView() {
         getSupportActionBar().setTitle(item.name);
 
+        ImageView infoImage = (ImageView) findViewById(R.id.info_image);
+        setImage(infoImage, item.imageFilename);
+
         scrollView = (ScrollView) findViewById(R.id.scroll_view);
 
         FragmentManager fm = getSupportFragmentManager();

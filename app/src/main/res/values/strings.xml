@@ -21,6 +21,9 @@
 
     <!-- 왼쪽 메뉴 -->
     <string name="nav_notice">공지사항</string>
+    <string name="nav_certificate">자격증</string>
+    <string name="nav_share">정보공유</string>
+    <string name="nav_schedule">정보공유</string>
     <string name="nav_mypage">마이페이지</string>
     <string name="nav_favorite">즐겨찾기</string>
     <string name="nav_setting">설정</string>
@@ -54,7 +57,7 @@
     <!-- 자격증 리스트 화면 -->
     <string name="field">분야별</string>
     <string name="job">직업별</string>
-    <string name="recent">최근순</string>
+    <string name="favorite">인기순</string>
 
     <!-- 자격증 정보 화면 -->
     <string name="description">상세설명</string>
@@ -82,4 +85,13 @@
     <string name="keep_delete">즐겨찾기 삭제</string>
     <string name="keep_delete_message">즐겨찾기에서 삭제하시겠습니까?</string>
 
+    <!-- 맛집 등록 -->
+    <string name="specup_register">정보공유 등록</string>
+    <string name="input_specup_name">제목을 입력해주세요</string>
+    <string name="input_specup_description">내용을 입력해주세요</string>
+    <string name="input_specup_image_memo">이미지 설명을 입력해주세요(생략가능)</string>
+    <string name="input_text_length">글자수 :</string>
+    <string name="input_text_max_length">/500</string>
+
+    <string name="not_valid_tel_number">잘못된 번호입니다.</string>
 </resources>

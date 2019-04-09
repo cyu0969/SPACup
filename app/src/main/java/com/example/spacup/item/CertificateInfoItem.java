@@ -7,6 +7,7 @@ import com.google.gson.annotations.SerializedName;
 public class CertificateInfoItem {
 
     public int seq;
+    @SerializedName("member_seq") public int memberSeq;
     public String name;
     public String tel;
     public String price;
@@ -15,6 +16,7 @@ public class CertificateInfoItem {
     public String homepage;
     public String description;
     @SerializedName("is_keep") public boolean isKeep;
+    @SerializedName("image_filename") public String imageFilename;
 
     @Override
     public String toString() {
