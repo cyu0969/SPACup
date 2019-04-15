@@ -44,6 +44,7 @@ public class SpecupInfoActivity extends AppCompatActivity implements View.OnClic
     ScrollView scrollView;
     ImageView keepImage;
 
+    // 자격증 정보를 보여주기 위해 사용자 정보를 얻고 이를 기반으로 서버에서 자격증 저보를 조회하는 메소드를 호출.
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -60,6 +61,7 @@ public class SpecupInfoActivity extends AppCompatActivity implements View.OnClic
         setToolbar();
     }
 
+    // 툴바를 설정
     private void setToolbar() {
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
@@ -72,12 +74,15 @@ public class SpecupInfoActivity extends AppCompatActivity implements View.OnClic
         }
     }
 
+    // 오른쪽 상단 메뉴를 구성
+    // 현재는 닫기만 있지만 설정 기능도 추가할 예정
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.menu_close, menu);
         return true;
     }
 
+    // 위에서 설정한 메뉴 기능중 닫기를 클릭했을 때 동작할 메소드 설정.
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
             case android.R.id.home :
@@ -91,6 +96,7 @@ public class SpecupInfoActivity extends AppCompatActivity implements View.OnClic
         return super.onOptionsItemSelected(item);
     }
 
+    // 서버에서 자격증 정보를 조회
     private void selectCertificateInfo(int certificateinfoSeq, int memberSeq) {
         RemoteService remoteService = ServiceGenerator.createService(RemoteService.class);
         Call<CertificateInfoItem> call = remoteService.selectCertificateInfo(certificateinfoSeq, memberSeq);
@@ -118,6 +124,7 @@ public class SpecupInfoActivity extends AppCompatActivity implements View.OnClic
         });
     }
 
+    // 자격증 정보를 화면에 설정
     private void setView() {
         getSupportActionBar().setTitle(item.name);
 
@@ -151,6 +158,7 @@ public class SpecupInfoActivity extends AppCompatActivity implements View.OnClic
         }
     }
 
+    // 즐겨찾기 버튼을 클릭했을 때의 동작을 정의
     @Override
     public void onClick(View v) {
         if (v.getId() == R.id.keep) {
