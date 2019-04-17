@@ -28,6 +28,8 @@ import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
+// 즐겨찾기 리스트의 아이템을 처리하는 어댑터
+
 public class SpecupInfoActivity extends AppCompatActivity implements View.OnClickListener {
 
     private final String TAG = this.getClass().getSimpleName();
@@ -142,7 +144,7 @@ public class SpecupInfoActivity extends AppCompatActivity implements View.OnClic
 
         keepImage = (ImageView) findViewById(R.id.keep);
         keepImage.setOnClickListener(this);
-        if (item.isKeep) {
+        if (item.isFavorite) {
             keepImage.setImageResource(R.drawable.ic_keep_on);
         } else {
             keepImage.setImageResource(R.drawable.ic_keep_off);
@@ -162,7 +164,7 @@ public class SpecupInfoActivity extends AppCompatActivity implements View.OnClic
     @Override
     public void onClick(View v) {
         if (v.getId() == R.id.keep) {
-            if (item.isKeep) {
+            if (item.isFavorite) {
                 DialogLib.getInstance()
                         .showKeepDeleteDialog(context, keepHandler, memberSeq, item.seq);
                 keepImage.setImageResource(R.drawable.ic_keep_off);
@@ -179,9 +181,9 @@ public class SpecupInfoActivity extends AppCompatActivity implements View.OnClic
         public void handleMessage(Message msg) {
             super.handleMessage(msg);
 
-            item.isKeep = !item.isKeep;
+            item.isFavorite = !item.isFavorite;
 
-            if (item.isKeep) {
+            if (item.isFavorite) {
                 keepImage.setImageResource(R.drawable.ic_keep_on);
             } else {
                 keepImage.setImageResource(R.drawable.ic_keep_off);

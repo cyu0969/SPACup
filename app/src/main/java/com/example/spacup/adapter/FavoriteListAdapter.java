@@ -11,57 +11,53 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.example.spacup.Constant;
-import com.example.spacup.MyApp;
 import com.example.spacup.R;
 import com.example.spacup.item.CertificateInfoItem;
-import com.example.spacup.item.MemberInfoItem;
+import com.example.spacup.item.FavoriteItem;
 import com.example.spacup.lib.DialogLib;
 import com.example.spacup.lib.GoLib;
 import com.example.spacup.lib.MyLog;
 import com.example.spacup.lib.StringLib;
-import com.example.spacup.remote.RemoteService;
-import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
 
-public class InfoListAdapter extends RecyclerView.Adapter<InfoListAdapter.ViewHolder> {
+public class FavoriteListAdapter extends RecyclerView.Adapter<FavoriteListAdapter.ViewHolder> {
 
     private final String TAG = this.getClass().getSimpleName();
 
     private Context context;
     private int resource;
-    private ArrayList<CertificateInfoItem> itemList;
-    private MemberInfoItem memberInfoItem;
+    private ArrayList<FavoriteItem> itemList;
+    private int memberSeq;
 
-    public InfoListAdapter(Context context, int resource, ArrayList<CertificateInfoItem> itemList) {
+    public FavoriteListAdapter(Context context, int resource, ArrayList<FavoriteItem> itemList, int memberSeq) {
         this.context = context;
         this.resource = resource;
         this.itemList = itemList;
+        this.memberSeq = memberSeq;
+    }
 
-        memberInfoItem = ((MyApp) context.getApplicationContext()).getMemberInfoItem();
+    public void setItemList(ArrayList<FavoriteItem> itemList) {
+        this.itemList = itemList;
+        notifyDataSetChanged();
     }
 
     public void setItem(CertificateInfoItem newItem) {
         for (int i=0; i < itemList.size(); i++) {
-            CertificateInfoItem item = itemList.get(i);
+            FavoriteItem item = itemList.get(i);
 
-            if (item.seq == newItem.seq) {
-                itemList.set(i, newItem);
+            if (item.seq == newItem.seq && !newItem.isFavorite) {
+                itemList.remove(i);
                 notifyItemChanged(i);
                 break;
             }
         }
     }
 
-    public void addItemList(ArrayList<CertificateInfoItem> itemList) {
-        this.itemList.addAll(itemList);
-        notifyDataSetChanged();
-    }
-
-    private void changeItemKeep(int seq, boolean keep) {
+    private void removeItem(int seq) {
         for (int i=0; i < itemList.size(); i++) {
             if (itemList.get(i).seq == seq) {
-                itemList.get(i).isFavorite = keep;
+                itemList.remove(i);
                 notifyItemChanged(i);
                 break;
             }
@@ -82,7 +78,7 @@ public class InfoListAdapter extends RecyclerView.Adapter<InfoListAdapter.ViewHo
 
     @Override
     public void onBindViewHolder(ViewHolder holder, int position) {
-        final CertificateInfoItem item = itemList.get(position);
+        final FavoriteItem item = itemList.get(position);
         MyLog.d(TAG, "getView " + item);
 
         if (item.isFavorite) {
@@ -92,10 +88,9 @@ public class InfoListAdapter extends RecyclerView.Adapter<InfoListAdapter.ViewHo
         }
 
         holder.name.setText(item.name);
-        holder.description.setText(StringLib.getInstance().getSubString(context,
-                item.description, Constant.MAX_LENGTH_DESCRIPTION));
-
-        setImage(holder.image, item.imageFilename);
+        holder.description.setText(
+                StringLib.getInstance().getSubString(context,
+                        item.description, Constant.MAX_LENGTH_DESCRIPTION));
 
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -107,43 +102,27 @@ public class InfoListAdapter extends RecyclerView.Adapter<InfoListAdapter.ViewHo
         holder.keep.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if (item.isFavorite) {
-                    DialogLib.getInstance().showKeepDeleteDialog(context,
-                            keepDeleteHandler, memberInfoItem.seq, item.seq);
-                } else {
-                    DialogLib.getInstance().showKeepInsertDialog(context,
-                            keepInsertHandler, memberInfoItem.seq, item.seq);
-                }
+                DialogLib.getInstance().showKeepDeleteDialog(context, keepHandler, memberSeq, item.seq);
             }
         });
     }
 
-    private void setImage(ImageView imageView, String fileName) {
-        if (StringLib.getInstance().isBlank(fileName)) {
-            Picasso.with(context).load(R.drawable.bg_specup_drawer).into(imageView);
-        } else {
-            Picasso.with(context).load(RemoteService.IMAGE_URL + fileName).into(imageView);
-        }
+    Handler keepHandler;
+
+    {
+        keepHandler = new Handler() {
+            @Override
+            public void handleMessage(Message msg) {
+                super.handleMessage(msg);
+
+                removeItem(msg.what);
+            }
+        };
     }
 
-    Handler keepInsertHandler = new Handler() {
-        @Override
-        public void handleMessage(Message msg) {
-            super.handleMessage(msg);
-
-            changeItemKeep(msg.what, true);
-        }
-    };
-
-    Handler keepDeleteHandler = new Handler() {
-        @Override
-        public void handleMessage(Message msg) {
-            super.handleMessage(msg);
-
-            changeItemKeep(msg.what, false);
-        }
-    };
-
+    /**
+     * 아이템을 보여주기 위한 뷰홀더 클래스
+     */
     public class ViewHolder extends RecyclerView.ViewHolder {
         ImageView image;
         ImageView keep;
@@ -159,4 +138,5 @@ public class InfoListAdapter extends RecyclerView.Adapter<InfoListAdapter.ViewHo
             description = (TextView) itemView.findViewById(R.id.description);
         }
     }
+
 }

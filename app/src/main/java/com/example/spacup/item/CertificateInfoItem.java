@@ -15,7 +15,7 @@ public class CertificateInfoItem {
     public String date;
     public String homepage;
     public String description;
-    @SerializedName("is_keep") public boolean isKeep;
+    @SerializedName("is_favorite") public boolean isFavorite;
     @SerializedName("image_filename") public String imageFilename;
 
     @Override
