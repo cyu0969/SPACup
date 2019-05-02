@@ -55,6 +55,10 @@ public class MainActivity extends AppCompatActivity
 
         headerLayout = navigationView.getHeaderView(0);
 
+        GoLib.getInstance()
+                .goFragment(getSupportFragmentManager(), R.id.content_main,
+                        CertificateListFragment.newInstance());
+
     }
 
     @Override
@@ -107,6 +111,10 @@ public class MainActivity extends AppCompatActivity
         int id = item.getItemId();
 
         if (id == R.id.nav_notice) {
+
+        } else if (id == R.id.nav_certificate) {
+
+            GoLib.getInstance().goMypageActivity((this));
 
         } else if (id == R.id.nav_mypage) {
 
