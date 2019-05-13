@@ -114,16 +114,27 @@ public class MainActivity extends AppCompatActivity
 
         } else if (id == R.id.nav_certificate) {
 
-            GoLib.getInstance().goMypageActivity((this));
+            GoLib.getInstance().goFragment(getSupportFragmentManager(), R.id.content_main, CertificateListFragment.newInstance());
 
         } else if (id == R.id.nav_mypage) {
 
             GoLib.getInstance().goMypageActivity((this));
 
+        } else if (id == R.id.nav_share) {
+
+
+        } else if (id == R.id.nav_schedule) {
+
+
+
         } else if (id == R.id.nav_favorite) {
 
             GoLib.getInstance().goFragment(getSupportFragmentManager(),
                     R.id.content_main, SpecupFavoriteFragment.newInstance());
+
+        } else if (id == R.id.nav_mypage) {
+
+            GoLib.getInstance().goMypageActivity((this));
 
         } else if (id == R.id.nav_setting) {
 
