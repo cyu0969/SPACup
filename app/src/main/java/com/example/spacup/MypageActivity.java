@@ -12,7 +12,6 @@ import android.view.View;
 import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.ImageView;
-import android.widget.TextView;
 
 import com.example.spacup.item.MemberInfoItem;
 import com.example.spacup.lib.MyLog;
@@ -35,12 +34,14 @@ public class MypageActivity extends AppCompatActivity implements View.OnClickLis
     EditText birthEdit;
     EditText phoneEdit;
 
+
     MemberInfoItem currentItem;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_mypage);
+
 
         context = this;
 
@@ -149,7 +150,6 @@ public class MypageActivity extends AppCompatActivity implements View.OnClickLis
             }
         }, year, month, day).show();
     }
-
 
     @Override
     public void onClick(View v) {
