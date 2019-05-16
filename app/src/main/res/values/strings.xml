@@ -37,8 +37,9 @@
     <string name="profile_birth">생일</string>
     <string name="profile_phone">전화</string>
 
-    <string name="sex_man">남자</string>
-    <string name="sex_woman">여자</string>
+    <string name="education_high">고등학교</string>
+    <string name="education_univ">대학교</string>
+    <string name="education_grad">대학원</string>
 
     <string name="device_number">기기 번호</string>
     <string name="phone_number">전화 번호</string>
