@@ -30,6 +30,8 @@ public class CertificateInfoItem {
                 ", date='" + date + '\'' +
                 ", homepage='" + homepage + '\'' +
                 ", description='" + description + '\'' +
+                ", isKeep=" + isFavorite +
+                ", imageFilename='" + imageFilename + '\'' +
                 '}';
     }
 }

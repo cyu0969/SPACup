@@ -58,12 +58,10 @@ public interface RemoteService {
                                        @Part("image_memo") RequestBody imageMemo,
                                        @Part MultipartBody.Part file);
 
-    @GET("/food/list")
+    @GET("/certificate/list")
     Call<ArrayList<CertificateInfoItem>> listCertificateInfo(@Query("member_seq") int memberSeq,
-                                                      @Query("user_latitude") double userLatitude,
-                                                      @Query("user_longitude") double userLongitude,
-                                                      @Query("order_type") String orderType,
-                                                      @Query("current_page") int currentPage);
+                                                             @Query("order_class") String orderClass,
+                                                             @Query("current_page") int currentPage);
 
     //즐겨찾기
     @POST("/favorite/{member_seq}/{info_seq}")

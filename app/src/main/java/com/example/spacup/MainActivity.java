@@ -116,11 +116,7 @@ public class MainActivity extends AppCompatActivity
 
             GoLib.getInstance().goFragment(getSupportFragmentManager(), R.id.content_main, CertificateListFragment.newInstance());
 
-        } else if (id == R.id.nav_mypage) {
-
-            GoLib.getInstance().goMypageActivity((this));
-
-        } else if (id == R.id.nav_share) {
+        }  else if (id == R.id.nav_share) {
 
 
         } else if (id == R.id.nav_schedule) {
