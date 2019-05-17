@@ -33,7 +33,7 @@
     <string name="profile_setting">프로필 설정</string>
 
     <string name="profile_name">이름</string>
-    <string name="profile_sextype">성별</string>
+    <string name="profile_sextype">학력</string>
     <string name="profile_birth">생일</string>
     <string name="profile_phone">전화</string>
 
