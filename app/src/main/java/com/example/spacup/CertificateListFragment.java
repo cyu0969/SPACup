@@ -25,6 +25,7 @@ import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
+// 자격증 정보를 보여주는 프래그먼트
 public class CertificateListFragment extends Fragment implements View.OnClickListener {
 
     private final String TAG = this.getClass().getSimpleName();
@@ -55,6 +56,7 @@ public class CertificateListFragment extends Fragment implements View.OnClickLis
         return f;
     }
 
+    // fragment_bestfood_list.xml 기반으로 뷰를 생성
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         context = this.getActivity();
@@ -66,6 +68,8 @@ public class CertificateListFragment extends Fragment implements View.OnClickLis
         return layout;
     }
 
+    // 프래그먼트가 일시 중지 상태가 되었다가 다시 보여질 때 호출
+    // 즐겨찾기의 내용이 변경되면 반영하기 위한 메소드
     @Override
     public void onResume() {
         super.onResume();
@@ -79,6 +83,7 @@ public class CertificateListFragment extends Fragment implements View.OnClickLis
         }
     }
 
+    // 화면 뷰들을 설정
     @Override
     public void onViewCreated(View view, Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
@@ -111,6 +116,7 @@ public class CertificateListFragment extends Fragment implements View.OnClickLis
         certificateList.setLayoutManager(layoutManager);
     }
 
+    // 리사이클러뷰를 설정하고 스크롤 리스너를 추가
     private void setRecyclerView() {
         setLayoutManager(listTypeValue);
 
@@ -127,6 +133,7 @@ public class CertificateListFragment extends Fragment implements View.OnClickLis
         certificateList.addOnScrollListener(scrollListener);
     }
 
+    // 서버에서 맛집 정보를 조회
     private void listInfo(int memberSeq, String orderType, final int currentPage) {
         RemoteService remoteService = ServiceGenerator.createService(RemoteService.class);
 
@@ -156,6 +163,7 @@ public class CertificateListFragment extends Fragment implements View.OnClickLis
         });
     }
 
+    // 버튼에 대한 클릭 처리를 정의
     @Override
     public void onClick(View v) {
         if (v.getId() == R.id.list_type) {

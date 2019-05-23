@@ -71,7 +71,5 @@ public interface RemoteService {
     Call<String> deleteKeep(@Path("member_seq") int memberSeq, @Path("info_seq") int infoSeq);
 
     @GET("/favorite/list")
-    Call<ArrayList<FavoriteItem>> listFavorite(@Query("member_seq") int memberSeq,
-                                           @Query("user_latitude") double userLatitude,
-                                           @Query("user_longitude") double userLongitude);
+    Call<ArrayList<FavoriteItem>> listFavorite(@Query("member_seq") int memberSeq);
 }

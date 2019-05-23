@@ -26,6 +26,7 @@ import com.squareup.picasso.Picasso;
 
 import java.io.File;
 
+// 프로필 아이콘을 등록하는 액티비티
 public class MypageIconActivity extends AppCompatActivity implements View.OnClickListener {
 
     private final String TAG = getClass().getSimpleName();
@@ -44,6 +45,7 @@ public class MypageIconActivity extends AppCompatActivity implements View.OnClic
     File mypageIconFile;
     String mypageIconFilename;
 
+    // 화면을 구성
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -58,6 +60,7 @@ public class MypageIconActivity extends AppCompatActivity implements View.OnClic
         setMypageIcon();
     }
 
+    // 툴바를 설정
     private void setToolbar() {
         final Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
@@ -69,6 +72,7 @@ public class MypageIconActivity extends AppCompatActivity implements View.OnClic
         }
     }
 
+    // 화면을 설정
     public void setView() {
         mypageIconImage = (ImageView) findViewById(R.id.profile_icon);
 
@@ -79,6 +83,7 @@ public class MypageIconActivity extends AppCompatActivity implements View.OnClic
         cameraButton.setOnClickListener(this);
     }
 
+    // 프로필 아이콘을 설정
     private void setMypageIcon() {
         MyLog.d(TAG, "onResume " +
                 RemoteService.MEMBER_ICON_URL + memberInfoItem.memberIconFilename);
@@ -92,12 +97,14 @@ public class MypageIconActivity extends AppCompatActivity implements View.OnClic
         }
     }
 
+    // 사용자가 선택한 프로필 아이콘을 저장할 파일 이름을 설정
     private void setMypageIconFile() {
         mypageIconFilename = memberInfoItem.seq + "_" + String.valueOf(System.currentTimeMillis());
 
         mypageIconFile = FileLib.getInstance().getProfileIconFile(context, mypageIconFilename);
     }
 
+    // 프로필 이미지 설정시 앨범 or 카메라 선택을 가능하게 하는 메소드
     @Override
     public void onClick(View v) {
         setMypageIconFile();
@@ -110,6 +117,7 @@ public class MypageIconActivity extends AppCompatActivity implements View.OnClic
         }
     }
 
+    // 오른쪽 상단 메뉴를 구성
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
@@ -125,24 +133,28 @@ public class MypageIconActivity extends AppCompatActivity implements View.OnClic
         return true;
     }
 
+    // 카메라 실행해서 이미지 촬용
     private void getImageFromAlbum() {
         Intent intent = new Intent(Intent.ACTION_PICK);
         intent.setType(MediaStore.Images.Media.CONTENT_TYPE);
         startActivityForResult(intent, PICK_FROM_ALBUM);
     }
 
+    // 기존 앨범에서 이미지 선택
     private void getImageFromCamera() {
         Intent intent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
         intent.putExtra(MediaStore.EXTRA_OUTPUT, Uri.fromFile(mypageIconFile));
         startActivityForResult(intent, PICK_FROM_CAMERA);
     }
 
+    // 오른쪽 상단 메뉴를 구성
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.menu_close, menu);
         return true;
     }
 
+    // 이미지를 자르기 위한 메소드
     private Intent getCropIntent(Uri inputUri, Uri outputUri) {
         Intent intent = new Intent("com.android.camera.action.CROP");
         intent.setDataAndType(inputUri, "image/*");
@@ -157,12 +169,14 @@ public class MypageIconActivity extends AppCompatActivity implements View.OnClic
         return intent;
     }
 
+    // 메라에서 촬영한 이미지를 프로필 아이콘에 사용할 크기로 자른다.
     private void cropImageFromCamera() {
         Uri uri = Uri.fromFile(mypageIconFile);
         Intent intent = getCropIntent(uri, uri);
         startActivityForResult(intent, CROP_FROM_CAMERA);
     }
 
+    // 카메라 앨범에서 선택한 이미지를 프로필 아이콘에 사용할 크기로 자른다.
     private void cropImageFromAlbum(Uri inputUri) {
         Uri outputUri = Uri.fromFile(mypageIconFile);
 
@@ -195,6 +209,7 @@ public class MypageIconActivity extends AppCompatActivity implements View.OnClic
         }
     }
 
+    // 프로필 아이콘을 서버에 업로드
     private void uploadMypageIcon() {
         RemoteLib.getInstance().uploadMemberIcon(memberInfoItem.seq, mypageIconFile);
 

@@ -34,6 +34,7 @@ import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
+// 프로필을 설정할 수 있는 액티비티
 public class MypageActivity extends AppCompatActivity implements View.OnClickListener {
 
     private final String TAG = this.getClass().getSimpleName();
@@ -42,12 +43,13 @@ public class MypageActivity extends AppCompatActivity implements View.OnClickLis
     ImageView profileIconImage;
     ImageView profileIconChangeImage;
     EditText nameEdit;
-    EditText sextypeEdit;
+    EditText educationEdit;
     EditText birthEdit;
     EditText phoneEdit;
 
     MemberInfoItem currentItem;
 
+    // 화면을 구성
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -61,6 +63,7 @@ public class MypageActivity extends AppCompatActivity implements View.OnClickLis
         setView();
     }
 
+    // 화면이 보여질 때 호출되며 사용자 정보를 기반으로 프로필 아이콘을 설정
     @Override
     protected void onResume() {
         super.onResume();
@@ -76,6 +79,7 @@ public class MypageActivity extends AppCompatActivity implements View.OnClickLis
         }
     }
 
+    // 툴바를 설정
     private void setToolbar() {
         final Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
@@ -87,6 +91,7 @@ public class MypageActivity extends AppCompatActivity implements View.OnClickLis
         }
     }
 
+    // 화면을 설정
     private void setView() {
         profileIconImage = (ImageView) findViewById(R.id.profile_icon);
         profileIconImage.setOnClickListener(this);
@@ -97,8 +102,8 @@ public class MypageActivity extends AppCompatActivity implements View.OnClickLis
         nameEdit = (EditText) findViewById(R.id.profile_name);
         nameEdit.setText(currentItem.name);
 
-        sextypeEdit = (EditText) findViewById(R.id.profile_sextype);
-        sextypeEdit.setOnClickListener(new View.OnClickListener() {
+        educationEdit = (EditText) findViewById(R.id.profile_sextype);
+        educationEdit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 setEducationTypeDialog();
@@ -127,7 +132,7 @@ public class MypageActivity extends AppCompatActivity implements View.OnClickLis
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
                         if (which >= 0) {
-                            sextypeEdit.setText(educationTypes[which]);
+                            educationEdit.setText(educationTypes[which]);
                         }
                         dialog.dismiss();
                     }
@@ -192,7 +197,7 @@ public class MypageActivity extends AppCompatActivity implements View.OnClickLis
         MemberInfoItem item = new MemberInfoItem();
         item.phone = EtcLib.getInstance().getPhoneNumber(context);
         item.name = nameEdit.getText().toString();
-        item.sextype = sextypeEdit.getText().toString();
+        item.education = educationEdit.getText().toString();
         item.birthday = birthEdit.getText().toString().replace(" ", "");
 
         return item;
@@ -202,7 +207,7 @@ public class MypageActivity extends AppCompatActivity implements View.OnClickLis
     // 변경되었으면 참, 아니면 거짓.
     private boolean isChanged(MemberInfoItem newItem) {
         if (newItem.name.trim().equals(currentItem.name)
-                && newItem.sextype.trim().equals(currentItem.sextype)
+                && newItem.education.trim().equals(currentItem.education)
                 && newItem.birthday.trim().equals(currentItem.birthday)) {
             Log.d(TAG, "return " + false);
             return false;
@@ -253,7 +258,7 @@ public class MypageActivity extends AppCompatActivity implements View.OnClickLis
                         return;
                     }
                     currentItem.name = newItem.name;
-                    currentItem.sextype = newItem.sextype;
+                    currentItem.education = newItem.education;
                     currentItem.birthday = newItem.birthday;
                     finish();
                 }

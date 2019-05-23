@@ -21,6 +21,7 @@ import com.example.spacup.lib.StringLib;
 
 import java.util.ArrayList;
 
+// 즐겨찾기 리스트의 아이템을 처리하는 어댑터
 public class FavoriteListAdapter extends RecyclerView.Adapter<FavoriteListAdapter.ViewHolder> {
 
     private final String TAG = this.getClass().getSimpleName();

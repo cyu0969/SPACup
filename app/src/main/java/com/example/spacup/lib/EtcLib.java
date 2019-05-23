@@ -24,7 +24,7 @@ public class EtcLib {
         return instance;
 
     }
-
+    // 현재 기기의 전화 번호를 반환
     public String getPhoneNumber(Context context) {
 
         TelephonyManager tm =
@@ -51,6 +51,7 @@ public class EtcLib {
         return number;
     }
 
+    // 전화번호가 없을 경우 기기 아이디를 반환
     private String getDeviceId(Context context) {
         TelephonyManager tm =
                 (TelephonyManager) context.getSystemService(Context.TELEPHONY_SERVICE);
@@ -68,6 +69,7 @@ public class EtcLib {
         return null;
     }
 
+    // 전화번호가 유효한 자리수를 가지고 있는지를 체크
     public boolean isValidPhoneNumber(String number) {
         if (number == null) {
             return false;
@@ -84,6 +86,7 @@ public class EtcLib {
         }
     }
 
+    // 전화번호에 '-'를 붙여서 반환
     public String getPhoneNumberText(String number) {
         String phoneText = "";
 
