@@ -7,6 +7,7 @@ import android.support.v4.app.FragmentManager;
 
 import com.example.spacup.MainActivity;
 import com.example.spacup.MypageActivity;
+import com.example.spacup.PreferenceSetting;
 import com.example.spacup.SpecupInfoActivity;
 
 // 현재 화면에서 다른 화면으로 이동하기 위한 객체
@@ -50,6 +51,12 @@ public class GoLib {
 
     public void goMypageActivity(Context context) {
         Intent intent = new Intent(context, MypageActivity.class);
+        intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+        context.startActivity(intent);
+    }
+
+    public void goPreferenceSetting(Context context) {
+        Intent intent = new Intent(context, PreferenceSetting.class);
         intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
         context.startActivity(intent);
     }

@@ -26,6 +26,7 @@
         android:textSize="@dimen/text_size_medium2"
         android:textStyle="bold" />
 
+    /* textColor - 보고서 작성용으로 흰색에서 검은색으로 변경 */
     <TextView
         android:id="@+id/message"
         android:layout_width="match_parent"
@@ -34,7 +35,7 @@
         android:layout_margin="8dp"
         android:gravity="center"
         android:text="@string/network_not_working"
-        android:textColor="@color/text_color_white"
+        android:textColor="@color/text_color_black"
         android:textSize="@dimen/text_size_medium"
         android:visibility="gone" />
 

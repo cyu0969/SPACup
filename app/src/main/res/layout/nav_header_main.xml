@@ -31,13 +31,11 @@
             app:civ_border_width="2dp" />
 
 
-        /* Bottom 추가 : 버튼과의 간격 조정 */
         <TextView
             android:id="@+id/name"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:paddingTop="@dimen/spacing_small"
-            android:paddingBottom="6dp"
             android:layout_below="@+id/profile_icon"
             android:layout_centerHorizontal="true"
             android:text="ㅇㅁㄴㅇㅁㄴㅇㅁ"
@@ -45,14 +43,6 @@
             android:textSize="@dimen/text_size_small2" />
 
     </RelativeLayout>
-
-    <com.kakao.usermgmt.LoginButton
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent"/>
 
 </LinearLayout>
 
