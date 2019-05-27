@@ -9,8 +9,6 @@ public class CertificateInfoItem {
     public int seq;
     @SerializedName("member_seq") public int memberSeq;
     public String name;
-    public String tel;
-    public String price;
     public String type;
     public String date;
     public String homepage;
@@ -24,8 +22,6 @@ public class CertificateInfoItem {
         return "CertificateInfoItem{" +
                 "seq=" + seq +
                 ", name='" + name + '\'' +
-                ", tel='" + tel + '\'' +
-                ", price='" + price + '\'' +
                 ", type='" + type + '\'' +
                 ", date='" + date + '\'' +
                 ", homepage='" + homepage + '\'' +

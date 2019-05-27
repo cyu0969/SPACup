@@ -57,9 +57,9 @@
     <string name="camera">카메라</string>
 
     <!-- 자격증 리스트 화면 -->
-    <string name="field">분야별</string>
-    <string name="job">직업별</string>
-    <string name="favorite">인기순</string>
+    <string name="field">인기 자격증</string>
+    <string name="job">최근 추가된 자격증</string>
+    <string name="favorite">추천 자격증</string>
 
     <!-- 자격증 정보 화면 -->
     <string name="description">상세설명</string>

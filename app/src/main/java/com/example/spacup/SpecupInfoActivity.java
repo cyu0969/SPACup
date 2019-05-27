@@ -150,8 +150,6 @@ public class SpecupInfoActivity extends AppCompatActivity implements View.OnClic
             keepImage.setImageResource(R.drawable.ic_keep_off);
         }
 
-
-
         TextView description = (TextView) findViewById(R.id.description);
         if (!StringLib.getInstance().isBlank(item.description)) {
             description.setText(item.description);
