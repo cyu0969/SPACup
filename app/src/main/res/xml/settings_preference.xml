@@ -16,7 +16,8 @@
 
         <CheckBoxPreference
             android:key="setting_activity_alarm_reiceive"
-            android:title="알림설정" android:defaultValue="true"/>
+            android:title="알림설정"
+            android:defaultValue="true"/>
 
     </PreferenceCategory>
 
@@ -37,11 +38,9 @@
             android:selectable="true" />
 
         <Preference
+            android:key="setting_activity_Developer_email"
             android:summary="개발자에게 메일을 보냅니다"
-            android:title="메일 보내기" >
-            <intent
-                android:action="android.intent.action.SENDTO"
-                android:data="dhlvyou@naver.com" />
+            android:title="메일 보내기">
         </Preference>
 
     </PreferenceCategory>
