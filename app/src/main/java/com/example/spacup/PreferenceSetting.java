@@ -1,26 +1,14 @@
 package com.example.spacup;
 
-import android.content.Context;
 import android.content.Intent;
-import android.content.SharedPreferences;
-import android.content.pm.ApplicationInfo;
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
 import android.net.Uri;
 import android.os.Bundle;
 import android.preference.CheckBoxPreference;
-import android.preference.ListPreference;
 import android.preference.Preference;
 import android.preference.PreferenceActivity;
-import android.preference.PreferenceFragment;
-import android.preference.PreferenceManager;
-import android.preference.PreferenceScreen;
-import android.support.annotation.Nullable;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.widget.BaseAdapter;
-import android.widget.LinearLayout;
-import android.widget.Toolbar;
+
 
 public class PreferenceSetting extends PreferenceActivity implements Preference.OnPreferenceClickListener {
 
@@ -90,9 +78,4 @@ public class PreferenceSetting extends PreferenceActivity implements Preference.
         return version;
     }
 
-    public static String getApplicationName(Context context) {
-        ApplicationInfo applicationInfo = context.getApplicationInfo();
-        int stringId = applicationInfo.labelRes;
-        return stringId == 0 ? applicationInfo.nonLocalizedLabel.toString() : context.getString(stringId);
-    }
 }
