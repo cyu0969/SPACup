@@ -7,16 +7,16 @@
         android:key="security_header"
         android:title="보안 설정">
 
-        <SwitchPreference
+        <Preference
             android:key="pref_key_passcode_toggle"
             android:persistent="false"
-            android:title="암호/지문 잠금 끄기" >
-        </SwitchPreference>
+            android:title="잠금 설정" >
+        </Preference>
 
         <Preference
             android:key="pref_key_change_passcode"
             android:persistent="false"
-            android:title="암호 변경" >
+            android:title="잠금 끄기" >
         </Preference>
 
     </PreferenceCategory>

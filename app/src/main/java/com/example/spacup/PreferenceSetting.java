@@ -31,9 +31,16 @@ public class PreferenceSetting extends PreferenceActivity implements Preference.
         }
 
 
+        Preference pAppLock = (Preference) findPreference("pref_key_passcode_toggle");
+        Preference pAppLockOff = (Preference) findPreference("pref_key_change_passcode");
+
         Preference pAppHelp = (Preference) findPreference("setting_activity_Developer_email");
         CheckBoxPreference cbpAutoAlarm = (CheckBoxPreference) findPreference("setting_activity_autoalarm");
         CheckBoxPreference cbpAlarmReceive = (CheckBoxPreference) findPreference("setting_activity_alarm_reiceive");
+
+
+        pAppLock.setOnPreferenceClickListener(this);
+        pAppLockOff.setOnPreferenceClickListener(this);
 
         pAppName.setOnPreferenceClickListener(this);
         pAppVersion.setOnPreferenceClickListener(this);
@@ -49,8 +56,17 @@ public class PreferenceSetting extends PreferenceActivity implements Preference.
         Intent i; //시스템액티비티를 부를 Intent 참조변수
         Uri uri;  //시스템 액티비티의 세부 종류를 구분하는 Data는 Uri객체로 제공. 이를 위한 참조변수
 
-        // 자동알림
         if (preference.getKey().equals("setting_activity_autoalarm")) {
+
+        }
+
+        // 알림 받기
+        else if (preference.getKey().equals("setting_activity_alarm_reiceive")) {
+
+        }
+
+        // 자동알림
+        else if (preference.getKey().equals("setting_activity_autoalarm")) {
 
         }
 
