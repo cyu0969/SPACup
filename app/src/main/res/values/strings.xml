@@ -96,4 +96,24 @@
     <string name="input_text_max_length">/500</string>
 
     <string name="not_valid_tel_number">잘못된 번호입니다.</string>
+
+
+    <!-- PassCodeLock _ cancel _ Delete -->
+    <string name="image_error">image</string>
+    <string name="passcode_confirm">Enter passcode</string>
+    <string name="passcode_lock">Passcode Lock</string>
+    <string name="passcode_set">Please set up passcode</string>
+    <string name="passcode_input">Please enter passcode</string>
+    <string name="zero">0</string>
+    <string name="one">1</string>
+    <string name="two">2</string>
+    <string name="three">3</string>
+    <string name="four">4</string>
+    <string name="five">5</string>
+    <string name="six">6</string>
+    <string name="seven">7</string>
+    <string name="eight">8</string>
+    <string name="nine">9</string>
+    <string name="period">.</string>
+
 </resources>

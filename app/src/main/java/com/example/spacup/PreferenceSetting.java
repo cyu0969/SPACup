@@ -9,6 +9,9 @@ import android.preference.CheckBoxPreference;
 import android.preference.Preference;
 import android.preference.PreferenceActivity;
 
+import com.example.spacup.util.PrefUtil;
+import com.example.spacup.util.ShowToast;
+
 
 public class PreferenceSetting extends PreferenceActivity implements Preference.OnPreferenceClickListener {
 
@@ -56,13 +59,17 @@ public class PreferenceSetting extends PreferenceActivity implements Preference.
         Intent i; //시스템액티비티를 부를 Intent 참조변수
         Uri uri;  //시스템 액티비티의 세부 종류를 구분하는 Data는 Uri객체로 제공. 이를 위한 참조변수
 
-        if (preference.getKey().equals("setting_activity_autoalarm")) {
 
+        // 잠금 설정
+        if (preference.getKey().equals("pref_key_passcode_toggle")) {
+            startActivity(PassCodeSetActivity.createIntent(getApplicationContext()));
         }
 
-        // 알림 받기
-        else if (preference.getKey().equals("setting_activity_alarm_reiceive")) {
-
+        // 잠금 끄기기
+        else if (preference.getKey().equals("pref_key_change_passcode")) {
+            PrefUtil.putBoolean(Constants.PREF_KEY_IS_LOCKED, false);
+            PrefUtil.putInt(Constants.PREF_KEY_PASSWORD, 0);
+            ShowToast.show("Unlock passcode!", this);
         }
 
         // 자동알림

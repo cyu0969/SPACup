@@ -35,6 +35,19 @@
         </activity>
 
         <activity android:name=".IndexActivity" />
+
+
+        <!-- PassCodeLock -->
+        <activity
+            android:name=".PassCodeSetActivity"
+            android:screenOrientation="portrait">
+        </activity>
+        <activity
+            android:name=".PassCodeConfirmationActivity"
+            android:screenOrientation="portrait">
+        </activity>
+
+
         <activity android:name=".MainActivity"/>
 
         <activity android:name=".SpecupInfoActivity"/>
