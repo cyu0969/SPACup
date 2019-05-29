@@ -23,7 +23,7 @@ import retrofit2.http.Query;
 
 public interface RemoteService {
 
-    String BASE_URL = "http://192.168.1.188:3000";
+    String BASE_URL = "http://14.32.150.70:3000";
     String MEMBER_ICON_URL = BASE_URL + "/member/";
     String IMAGE_URL = BASE_URL + "/img/";
 
