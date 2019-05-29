@@ -22,4 +22,19 @@
     <dimen name="text_size_large2">22sp</dimen>
 
     <dimen name="cardview_round_basic">4dp</dimen>
+
+
+    <!-- PassCodeLock _ text_size_small,medium,large _ 14,18,22 _ Delete -->
+
+    <dimen name="titlebar_height">45dip</dimen>
+    <dimen name="button_height">37dip</dimen>
+    <dimen name="button_width">50dip</dimen>
+    <dimen name="button_margin">5dip</dimen>
+    <dimen name="text_size_micro">12sp</dimen>
+
+    <dimen name="text_size_pre_medium">16sp</dimen>
+
+    <dimen name="text_size_huge">26sp</dimen>
+    <dimen name="text_size_extra_huge">36sp</dimen>
+
 </resources>

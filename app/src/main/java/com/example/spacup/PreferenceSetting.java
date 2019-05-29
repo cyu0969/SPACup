@@ -9,6 +9,9 @@ import android.preference.CheckBoxPreference;
 import android.preference.Preference;
 import android.preference.PreferenceActivity;
 
+import com.example.spacup.util.PrefUtil;
+import com.example.spacup.util.ShowToast;
+
 
 public class PreferenceSetting extends PreferenceActivity implements Preference.OnPreferenceClickListener {
 
@@ -31,9 +34,16 @@ public class PreferenceSetting extends PreferenceActivity implements Preference.
         }
 
 
+        Preference pAppLock = (Preference) findPreference("pref_key_passcode_toggle");
+        Preference pAppLockOff = (Preference) findPreference("pref_key_change_passcode");
+
         Preference pAppHelp = (Preference) findPreference("setting_activity_Developer_email");
         CheckBoxPreference cbpAutoAlarm = (CheckBoxPreference) findPreference("setting_activity_autoalarm");
         CheckBoxPreference cbpAlarmReceive = (CheckBoxPreference) findPreference("setting_activity_alarm_reiceive");
+
+
+        pAppLock.setOnPreferenceClickListener(this);
+        pAppLockOff.setOnPreferenceClickListener(this);
 
         pAppName.setOnPreferenceClickListener(this);
         pAppVersion.setOnPreferenceClickListener(this);
@@ -49,8 +59,21 @@ public class PreferenceSetting extends PreferenceActivity implements Preference.
         Intent i; //시스템액티비티를 부를 Intent 참조변수
         Uri uri;  //시스템 액티비티의 세부 종류를 구분하는 Data는 Uri객체로 제공. 이를 위한 참조변수
 
+
+        // 잠금 설정
+        if (preference.getKey().equals("pref_key_passcode_toggle")) {
+            startActivity(PassCodeSetActivity.createIntent(getApplicationContext()));
+        }
+
+        // 잠금 끄기기
+        else if (preference.getKey().equals("pref_key_change_passcode")) {
+            PrefUtil.putBoolean(Constants.PREF_KEY_IS_LOCKED, false);
+            PrefUtil.putInt(Constants.PREF_KEY_PASSWORD, 0);
+            ShowToast.show("잠금 설정이 해제 되었습니다. ", this);
+        }
+
         // 자동알림
-        if (preference.getKey().equals("setting_activity_autoalarm")) {
+        else if (preference.getKey().equals("setting_activity_autoalarm")) {
 
         }
 

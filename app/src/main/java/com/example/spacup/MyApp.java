@@ -1,11 +1,15 @@
 package com.example.spacup;
 
+import android.app.Activity;
 import android.app.Application;
+import android.content.ComponentCallbacks2;
 import android.content.Context;
+import android.os.Bundle;
 import android.os.StrictMode;
 
 import com.example.spacup.item.CertificateInfoItem;
 import com.example.spacup.item.MemberInfoItem;
+import com.example.spacup.util.PrefUtil;
 import com.kakao.auth.ApprovalType;
 import com.kakao.auth.AuthType;
 import com.kakao.auth.IApplicationConfig;
@@ -13,13 +17,27 @@ import com.kakao.auth.ISessionConfig;
 import com.kakao.auth.KakaoAdapter;
 import com.kakao.auth.KakaoSDK;
 
+import timber.log.Timber;
+
+import static com.example.spacup.Constants.PREF_KEY_IS_LOCKED;
+
 // MemberInfoItem을 저장하고 반환하는 역활을 하는 객체
 // CertificateInfoItem을 저장하고 반환하는 역활을 하는 객체
-public class MyApp extends Application {
+public class MyApp extends Application implements Application.ActivityLifecycleCallbacks {
 
     private MemberInfoItem memberInfoItem;
     private CertificateInfoItem certificateInfoItem;
     private static volatile MyApp instance = null;
+
+    // PassCodeLock --------------------------------------//
+    private boolean isNeedPassCodeConfirmation = true;
+    private static MyApp app;
+
+    public static MyApp getInstance() {
+        if (app == null) app = new MyApp();
+        return app;
+    }
+    // --------------------------------------------------//
 
     @Override
     public void onCreate() {
@@ -29,7 +47,49 @@ public class MyApp extends Application {
 
         instance = this;
         KakaoSDK.init(new MyApp.KakaoSDKAdapter());
+
+        // PassCodeLock -------------------------------------------------------------------------//
+        Timber.plant(new Timber.DebugTree());
+        PrefUtil.setSharedPreferences(getApplicationContext());
+        registerActivityLifecycleCallbacks(this);
+
     }
+
+    @Override public void onTrimMemory(int level) {
+        super.onTrimMemory(level);
+        if (level == ComponentCallbacks2.TRIM_MEMORY_UI_HIDDEN) {
+            isNeedPassCodeConfirmation = true;
+        }
+    }
+
+    @Override public void onActivityCreated(Activity activity, Bundle savedInstanceState) {
+    }
+
+    @Override public void onActivityStarted(Activity activity) {
+        if (isNeedPassCodeConfirmation && PrefUtil.getBoolean(PREF_KEY_IS_LOCKED)) {
+            activity.startActivity(PassCodeConfirmationActivity.createIntent(getApplicationContext()));
+        }
+        isNeedPassCodeConfirmation = false;
+    }
+
+    @Override public void onActivityResumed(Activity activity) {
+    }
+
+    @Override public void onActivityPaused(Activity activity) {
+
+    }
+
+    @Override public void onActivityStopped(Activity activity) {
+    }
+
+    @Override public void onActivitySaveInstanceState(Activity activity, Bundle outState) {
+    }
+
+    @Override public void onActivityDestroyed(Activity activity) {
+    }
+
+    // ------------------------------------------------------------------------------------------//
+
 
     public MemberInfoItem getMemberInfoItem() {
         if (memberInfoItem == null) memberInfoItem = new MemberInfoItem();
