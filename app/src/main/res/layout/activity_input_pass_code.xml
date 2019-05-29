@@ -307,9 +307,9 @@
 
                 <ImageView
                     android:id="@+id/box_delete"
-                    android:layout_width="40dip"
+                    android:layout_width="34dip"
                     android:onClick="onDelete"
-                    android:layout_height="40dip"
+                    android:layout_height="34dip"
                     android:layout_centerInParent="true"
                     android:background="@drawable/button_passdelete"
                     android:clickable="true"
