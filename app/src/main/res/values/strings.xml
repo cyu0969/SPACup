@@ -100,10 +100,10 @@
 
     <!-- PassCodeLock _ cancel _ Delete -->
     <string name="image_error">image</string>
-    <string name="passcode_confirm">Enter passcode</string>
-    <string name="passcode_lock">Passcode Lock</string>
-    <string name="passcode_set">Please set up passcode</string>
-    <string name="passcode_input">Please enter passcode</string>
+    <string name="passcode_confirm">앱 잠금</string>
+    <string name="passcode_lock">잠금 설정</string>
+    <string name="passcode_set">암호를 설정하세요.</string>
+    <string name="passcode_input">암호를 입력하세요.</string>
     <string name="zero">0</string>
     <string name="one">1</string>
     <string name="two">2</string>

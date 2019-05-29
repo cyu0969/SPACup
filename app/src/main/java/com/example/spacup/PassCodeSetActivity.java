@@ -22,10 +22,10 @@ import timber.log.Timber;
 
 public class PassCodeSetActivity extends AppCompatActivity implements View.OnClickListener {
 
-  private final String TEXT_MAIN_CONFIRM = "Confirm passcode";
-  private final String TEXT_SUB_CONFIRM = "Please re-enter passcode";
+  private final String TEXT_MAIN_CONFIRM = "암호 확인";
+  private final String TEXT_SUB_CONFIRM = "암호를 다시 입력하세요.";
   private final String TEXT_MAIN_MISTAKE = "Passcode Lock";
-  private final String TEXT_SUB_MISTAKE = "Wrong passcode.Please try it again";
+  private final String TEXT_SUB_MISTAKE = "암호가 틀렸습니다. 다시 시도하세요.";
   private TextView text_main_pass;
   private TextView text_sub_pass;
   private ImageView[] array_image_view;
@@ -129,7 +129,7 @@ public class PassCodeSetActivity extends AppCompatActivity implements View.OnCli
   private void confirmPassword() {
     if (isDoubleCheck) {
       if (password == Integer.parseInt(stringBuilder.toString())) {
-        ShowToast.show("Locked!", this);
+        ShowToast.show("잠금 설정이 되었습니다.", this);
         PrefUtil.putInt(Constants.PREF_KEY_PASSWORD, password);
         PrefUtil.putBoolean(Constants.PREF_KEY_IS_LOCKED, true);
         finish();

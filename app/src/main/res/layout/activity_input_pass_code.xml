@@ -142,7 +142,7 @@
                 android:text="@string/one"
                 android:textColor="@color/black"
                 android:textColorHint="@android:color/black"
-                android:textSize="36sp"
+                android:textSize="30sp"
                 android:textStyle="bold"/>
 
             <TextView
@@ -155,7 +155,7 @@
                 android:gravity="center"
                 android:text="@string/two"
                 android:textColor="@color/black"
-                android:textSize="36sp"
+                android:textSize="30sp"
                 android:textStyle="bold"/>
 
             <TextView
@@ -168,7 +168,7 @@
                 android:gravity="center"
                 android:text="@string/three"
                 android:textColor="@color/black"
-                android:textSize="36sp"
+                android:textSize="30sp"
                 android:textStyle="bold"/>
         </LinearLayout>
 
@@ -189,7 +189,7 @@
                 android:gravity="center"
                 android:text="@string/four"
                 android:textColor="@color/black"
-                android:textSize="36sp"
+                android:textSize="30sp"
                 android:textStyle="bold"/>
 
             <TextView
@@ -202,7 +202,7 @@
                 android:gravity="center"
                 android:text="@string/five"
                 android:textColor="@color/black"
-                android:textSize="36sp"
+                android:textSize="30sp"
                 android:textStyle="bold"/>
 
             <TextView
@@ -215,7 +215,7 @@
                 android:gravity="center"
                 android:text="@string/six"
                 android:textColor="@color/black"
-                android:textSize="36sp"
+                android:textSize="30sp"
                 android:textStyle="bold"/>
         </LinearLayout>
 
@@ -236,7 +236,7 @@
                 android:gravity="center"
                 android:text="@string/seven"
                 android:textColor="@color/black"
-                android:textSize="36sp"
+                android:textSize="30sp"
                 android:textStyle="bold"/>
 
             <TextView
@@ -249,7 +249,7 @@
                 android:gravity="center"
                 android:text="@string/eight"
                 android:textColor="@color/black"
-                android:textSize="36sp"
+                android:textSize="30sp"
                 android:textStyle="bold"/>
 
             <TextView
@@ -262,7 +262,7 @@
                 android:gravity="center"
                 android:text="@string/nine"
                 android:textColor="@color/black"
-                android:textSize="36sp"
+                android:textSize="30sp"
                 android:textStyle="bold"/>
         </LinearLayout>
 
@@ -297,7 +297,7 @@
                 android:gravity="center"
                 android:text="@string/zero"
                 android:textColor="@color/black"
-                android:textSize="36sp"
+                android:textSize="30sp"
                 android:textStyle="bold"/>
 
             <RelativeLayout

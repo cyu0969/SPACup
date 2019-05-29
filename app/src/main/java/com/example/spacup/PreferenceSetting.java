@@ -69,7 +69,7 @@ public class PreferenceSetting extends PreferenceActivity implements Preference.
         else if (preference.getKey().equals("pref_key_change_passcode")) {
             PrefUtil.putBoolean(Constants.PREF_KEY_IS_LOCKED, false);
             PrefUtil.putInt(Constants.PREF_KEY_PASSWORD, 0);
-            ShowToast.show("Unlock passcode!", this);
+            ShowToast.show("잠금 설정이 해제 되었습니다. ", this);
         }
 
         // 자동알림

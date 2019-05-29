@@ -20,7 +20,7 @@ import com.example.spacup.util.PrefUtil;
 import timber.log.Timber;
 
 public class PassCodeConfirmationActivity extends AppCompatActivity implements View.OnClickListener {
-    private final String TEXT_SUB_MISTAKE = "Wrong passcode.Please try it again";
+    private final String TEXT_SUB_MISTAKE = "암호가 틀렸습니다. 다시 시도하세요.";
     private TextView text_sub_pass;
     private ImageView[] array_image_view;
     private StringBuilder stringBuilder = new StringBuilder();
