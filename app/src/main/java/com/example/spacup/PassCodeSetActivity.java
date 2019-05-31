@@ -24,7 +24,7 @@ public class PassCodeSetActivity extends AppCompatActivity implements View.OnCli
 
   private final String TEXT_MAIN_CONFIRM = "암호 확인";
   private final String TEXT_SUB_CONFIRM = "암호를 다시 입력하세요.";
-  private final String TEXT_MAIN_MISTAKE = "Passcode Lock";
+  private final String TEXT_MAIN_MISTAKE = "잠금 설정";
   private final String TEXT_SUB_MISTAKE = "암호가 틀렸습니다. 다시 시도하세요.";
   private TextView text_main_pass;
   private TextView text_sub_pass;
