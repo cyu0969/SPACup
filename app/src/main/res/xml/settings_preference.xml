@@ -10,8 +10,7 @@
         <Preference
             android:key="pref_key_passcode_toggle"
             android:persistent="false"
-            android:title="잠금 설정"
-            android:summary="어플 잠금을 설정합니다.">
+            android:title="잠금 설정">
         </Preference>
 
         <Preference
