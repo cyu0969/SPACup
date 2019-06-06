@@ -16,7 +16,7 @@
         <Preference
             android:key="pref_key_change_passcode"
             android:persistent="false"
-            android:title="잠금 끄 기" >
+            android:title="잠금 끄기" >
         </Preference>
 
     </PreferenceCategory>
